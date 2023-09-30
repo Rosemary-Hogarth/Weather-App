@@ -1,0 +1,182 @@
+body {
+  font-family: "Poppins", sans-serif;
+
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 32px;
+  width: 40%;
+  margin: 64px auto;
+  border-radius: 10px;
+  background: #ffd6e4;
+  color: #5a6275;
+  max-width: fit-content;
+}
+
+.box-button {
+  display: block;
+  margin: 0, auto;
+}
+.form-control {
+  border-color: white;
+  border-width: 1px;
+  text-decoration: none;
+  font-size: 12px;
+  left: 6px;
+  position: relative;
+  background-color: whitesmoke;
+  border: 1px solid #5a6275;
+  text-align: left;
+  border-radius: 3px;
+  padding: 5px 5px 5px 5px;
+}
+
+.current {
+  border-color: white;
+  border-width: 1px;
+  text-decoration: none;
+  font-size: 12px;
+  color: #5a6275;
+
+  background-color: whitesmoke;
+  border: 1px solid #5a6275;
+  border-radius: 3px;
+  position: relative;
+  left: -30px;
+  margin: 0, auto;
+}
+
+.button {
+  border-color: white;
+  border-width: 1px;
+  text-decoration: none;
+  font-size: 12px;
+  color: #5a6275;
+  background-color: whitesmoke;
+  border: 1px solid #5a6275;
+  border-radius: 3px;
+  position: relative;
+  left: 150px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.col-3 {
+  font-size: 35px;
+  font-weight: 600;
+  position: relative;
+  right: 30px;
+  top: 100px;
+}
+
+.sun-icon1 {
+  font-size: 250px;
+  color: #ffd87a;
+}
+
+ul {
+  font-size: 13px;
+  list-style: none;
+  position: relative;
+  bottom: -50px;
+  padding: 0;
+}
+.degrees {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.c-f {
+  font-size: 35px;
+  list-style: none;
+  text-align: right;
+  padding: 0;
+  bottom: 7px;
+  right: -20px;
+}
+.sun-icon {
+  color: #ffd87a;
+}
+
+.cloud-icon,
+.cloud-rain-icon,
+.sun-icon {
+  font-size: 30px;
+}
+
+.cloud-icon,
+.cloud-rain-icon {
+  color: #414749;
+}
+
+p {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 30px;
+}
+
+.celcius,
+.fahrenheit {
+  font-size: 20px;
+  color: #5a6275;
+  text-decoration: none;
+}
+
+.celcius:hover,
+.fahrenheit:hover {
+  color: whitesmoke;
+}
+.forecast {
+  font-size: 12px;
+}
+
+.temps {
+  font-weight: 200;
+}
+
+@media screen and (max-width: 1025px) {
+  .col-3 {
+    font-size: 40px;
+    line-height: 50px;
+    position: relative;
+    right: 44px;
+  }
+  .container {
+    padding: 32px;
+    width: 100%;
+    margin: 64px auto;
+    border-radius: 10px;
+    background: #ffd6e4;
+    color: #5a6275;
+  }
+
+  .forecast {
+    font-size: 10px;
+  }
+  .sun-icon1 {
+    font-size: 180px;
+  }
+  h4 {
+    font-size: 40px;
+  }
+  ul {
+    margin: 0 0 40px 0;
+  }
+  .search-city {
+    padding: 10px 20px 0 4px;
+  }
+}
+@media screen and (max-width: 1179px) {
+  .box-button {
+    position: relative;
+    left: 80px;
+  }
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700&family=Merriweather:wght@300&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,300&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/d9461d41d7.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form class="box-button">
+        <input
+          type="search"
+          class="form-control"
+          placeholder="Find your city"
+          id="city-search"
+          style="width: 200px"
+        />
+        <input type="submit" class="button" value="Search" />
+        <button id="current-location" class="current">Current Location</button>
+      </form>
+
+      <h1>12:45 | Thursday, 7. September</h1>
+      <h2 id="cityInput"></h2>
+      <br />
+      <div class="middle-section">
+        <div class="row">
+          <div class="col-9">
+            <i id="current-emoji" class="fa-solid fa-circle sun-icon1"></i>
+          </div>
+          <div id="current-description" class="col-3">Sunny</div>
+        </div>
+      </div>
+
+      <ul>
+        <li id="humidity">Humidity: 45%</li>
+        <li id="pressure">Pressure</li>
+        <!-- <li>Precipitation: 0mm in last 24h</li> -->
+      </ul>
+
+      <ul class="c-f">
+        <li class="degrees" id="temp"><p>30</p></li>
+        <li class="degrees">
+          <a href="°C" class="celcius" id="press">°C</a>
+        </li>
+        <!-- <li class="degrees">
+          <a href="°F" class="fahrenheit" id="button">| °F</a> -->
+        <!-- </li> -->
+      </ul>
+
+      <hr />
+      <div class="forecast">
+        <div class="row">
+          <div class="col">Friday</div>
+          <div class="col">Saturday</div>
+          <div class="col">Sunday</div>
+          <div class="col">Monday</div>
+          <div class="col">Tuesday</div>
+        </div>
+      </div>
+      <br />
+
+      <div class="row">
+        <div class="col">30°</div>
+        <div class="col">28°</div>
+        <div class="col">27°</div>
+        <div class="col">30°</div>
+        <div class="col">30°</div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col">
+          <i class="fa-solid fa-circle sun-icon"></i>
+        </div>
+        <div class="col">
+          <i class="fa-solid fa-cloud-rain cloud-rain-icon"></i>
+        </div>
+        <div class="col">
+          <i class="fa-solid fa-cloud-rain cloud-rain-icon"></i>
+        </div>
+        <div class="col"><i class="fa-solid fa-circle sun-icon"></i></div>
+        <div class="col"><i class="fa-solid fa-circle sun-icon"></i></div>
+      </div>
+      <br />
+      <div class="temps">
+        <div class="row">
+          <div class="col">15°</div>
+          <div class="col">15°</div>
+          <div class="col">13°</div>
+          <div class="col">13°</div>
+          <div class="col">15°</div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
