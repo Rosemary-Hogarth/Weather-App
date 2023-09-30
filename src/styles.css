@@ -47,8 +47,8 @@ body {
   border: 1px solid #ffd5e2;
   border-radius: 3px;
   width: 70px;
-  margin-bottom: 20px;
-  margin-top: 10px;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 h1 {
@@ -61,7 +61,7 @@ h1 {
   font-weight: 600;
   position: relative;
   right: 30px;
-  top: 40px;
+  top: 25px;
 }
 
 .sun-icon1 {
@@ -80,12 +80,13 @@ ul {
 
 .degrees {
   display: inline-block;
-  margin-right: 17px;
+  margin-right: 0;
   margin-bottom: 10px;
 }
 
 .c-f {
   font-size: 35px;
+  font-weight: 100px;
   list-style: none;
   text-align: right;
   padding: 0;
@@ -116,14 +117,14 @@ p {
   font-size: 30px;
 }
 
-.celcius,
+.celsius,
 .fahrenheit {
   font-size: 20px;
   color: #5a6275;
   text-decoration: none;
 }
 
-.celcius:hover,
+.celsius:hover,
 .fahrenheit:hover {
   color: whitesmoke;
 }
