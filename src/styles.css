@@ -17,7 +17,8 @@ body {
 
 .box-button {
   display: block;
-  margin: 0, auto;
+  margin: 0 auto;
+  width: 200px;
 }
 .form-control {
   border-color: white;
@@ -149,12 +150,11 @@ p {
 
 span {
   position: relative;
-  left: 445px;
-  margin: 0 auto;
-  padding: 0 auto;
+  left: 350px;
   bottom: 60px;
   color: #5a6275;
   font-size: 14px;
+  left: 450px;
 }
 @media screen and (max-width: 1025px) {
   .col-3 {
