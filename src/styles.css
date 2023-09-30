@@ -135,16 +135,13 @@ p {
 
 .code {
   color: #5a6275;
-  text-decoration: underline #ffd6e4;
+  text-decoration: underline yellow;
 }
 
 span {
-  position: relative;
-  left: 350px;
-  bottom: 60px;
+  margin: 0 auto;
   color: #5a6275;
-  font-size: 14px;
-  left: 450px;
+  font-size: 11px;
 }
 @media screen and (max-width: 1025px) {
   .col-3 {
@@ -188,6 +185,6 @@ span {
   }
   span {
     font-size: 10px;
-    margin: 150px auto;
+    margin: 0 auto;
   }
 }
