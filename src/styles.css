@@ -142,6 +142,20 @@ p {
   font-weight: 200;
 }
 
+.code {
+  color: #5a6275;
+  text-decoration: underline #ffd6e4;
+}
+
+span {
+  position: relative;
+  left: 445px;
+  margin: 0 auto;
+  padding: 0 auto;
+  bottom: 60px;
+  color: #5a6275;
+  font-size: 14px;
+}
 @media screen and (max-width: 1025px) {
   .col-3 {
     font-size: 40px;
