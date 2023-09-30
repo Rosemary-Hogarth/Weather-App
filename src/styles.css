@@ -136,9 +136,14 @@ p {
 }
 
 span {
-  margin: 0 auto;
+  max-width: 600px;
+  margin-left: 510px;
+  margin-top: 0;
   color: #5a6275;
   font-size: 11px;
+  padding: 0 auto;
+  position: relative;
+  bottom: 60px;
 }
 @media screen and (max-width: 1025px) {
   .col-3 {
@@ -159,8 +164,8 @@ span {
   .forecast {
     font-size: 10px;
   }
-  .sun-icon1 {
-    font-size: 180px;
+  .weather-icon {
+    width: 600px;
   }
   h4 {
     font-size: 40px;
