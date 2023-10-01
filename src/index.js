@@ -110,23 +110,14 @@ searchButton.addEventListener("click", displayTemp);
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", searchPosition);
 
-search("Berlin");
-
-function showCelsius(event) {
-  event.preventDefault();
-  let tempElement = document.querySelector("#celsius-link");
-
-  tempElement.innerHTML = `${celsiusTemperature}`;
-}
-
-let click = document.querySelector("#celsius-link");
-click.addEventListener("click", showCelsius);
-
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
-  let tempElement = document.querySelector("#fahrenheit-link");
-
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  tempElement.innerHTML = Math.round(fahrenheitTemperature);
+  let fahrenheitTemperature = (14 * 9) / 5 + 32;
+  let currentTemp = document.querySelector("#temperature");
+  currentTemp.innerHTML = Math.round(fahrenheitTemperature);
 }
-let celsiusTemperature = null;
+
+search("Berlin");
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
