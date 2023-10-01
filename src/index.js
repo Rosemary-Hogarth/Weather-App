@@ -65,8 +65,6 @@ function displayTemp(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-//the event here is the form being submitted when the user searches for a city.
-
 //axios makes HTTP requests from the browser and handles the transformation of request and response data.
 //here it uses the url to pull all the data in the displayTemp function.
 
@@ -76,6 +74,7 @@ function search(city) {
   axios.get(apiUrl).then(displayTemp);
 }
 
+//the event here is the form being submitted when the user searches for a city.
 function handleSubmit(event) {
   event.preventDefault();
   let citySearch = document.querySelector("#city-search");
@@ -113,17 +112,21 @@ currentLocationButton.addEventListener("click", searchPosition);
 
 search("Berlin");
 
-// let celsiusTemperature = null;
+function showCelsius(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#celsius-link");
 
-// function showCelsius(event) {
-//   event.preventDefault();
-//   let p = document.querySelector("#press");
+  tempElement.innerHTML = `${celsiusTemperature}`;
+}
 
-//   let celsius = 30;
-//   p.innerHTML = `${celsius}`;
-// }
+let click = document.querySelector("#celsius-link");
+click.addEventListener("click", showCelsius);
 
-// let press = document.querySelector("#press");
-// press.addEventListener("click", showCelsius);
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#fahrenheit-link");
 
-// searchPosition(Berlin);
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+let celsiusTemperature = null;
