@@ -1,7 +1,7 @@
 //calling the date and time from inside js.
 
-let currentDate = document.querySelector("#current-date-data");
-let currentTime = new Date();
+let currentDate = new Date();
+let h1 = document.querySelector("h1");
 
 let days = [
   "Sunday",
@@ -12,7 +12,6 @@ let days = [
   "Friday",
   "Saturday",
 ];
-let currentDay = days[currentTime.getDay()];
 let day = days[currentDate.getDay()];
 let time = currentDate.getHours();
 let minutes = currentDate.getMinutes();
@@ -33,57 +32,58 @@ h1.innerHTML = `${day} ${time}:${minutes}`;
 function displayTemp(response) {
   let temp = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("#temp");
-  currentTemp.innerHTML = temp;
+
   let description = response.data.weather[0].main;
   let currentDescription = document.querySelector("#current-description");
-  currentDescription.innerHTML = description;
+
   let humidity = response.data.main.humidity;
   let currentHumidity = document.querySelector("#humidity");
-  currentHumidity.innerHTML = `Humidity: ${humidity}%`;
+
   let pressure = response.data.main.pressure;
   let currentPressure = document.querySelector("#pressure");
-  currentPressure.innerHTML = `Pressure: ${pressure}%`;
+
   let wind = Math.round(response.data.wind.speed);
   let currentWind = document.querySelector("#wind");
-  currentWind.innerHTML = `Wind: ${wind} km/h`;
+
   let city = response.data.name;
   let currentCity = document.querySelector("#cityInput");
-  currentCity.innerHTML = `${city}`;
 
   let iconElement = document.querySelector("#icon");
+
+  let celsiusTemperature = response.data.main.temp;
+
+  currentTemp.innerHTML = Math.round(celsiusTemperature);
+  currentDescription.innerHTML = description;
+  currentHumidity.innerHTML = `Humidity: ${humidity}%`;
+  currentPressure.innerHTML = `Pressure: ${pressure}%`;
+  currentWind.innerHTML = `Wind: ${wind} km/h`;
+  currentCity.innerHTML = `${city}`;
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
-  let celsiusTemperature = response.data.main.temp;
 }
 
 //the event here is the form being submitted when the user searches for a city.
 
-function showCityName(event) {
+//axios makes HTTP requests from the browser and handles the transformation of request and response data.
+//here it uses the url to pull all the data in the displayTemp function.
+
+function search(city) {
+  let apiKey = "3e29a63c22228ff8f4a04b82fdde6e77";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemp);
+}
+
+function handleSubmit(event) {
   event.preventDefault();
   let citySearch = document.querySelector("#city-search");
-  let h2 = document.querySelector("h2");
-
-  h2.innerHTML = citySearch.value;
-  let apiKey = "3e29a63c22228ff8f4a04b82fdde6e77";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch.value}&appid=${apiKey}&units=metric`;
-
-  //axios makes HTTP requests from the browser and handles the transformation of request and response data.
-  //here it uses the url to pull all the data in the displayTemp function.
-
-  axios.get(apiUrl).then(displayTemp).catch(handleError);
+  search(citySearch.value);
 }
 
-// when the form is used and the city is submitted, the event listener calls the showCityName function.
-
-let form = document.querySelector("form");
-form.addEventListener("submit", showCityName);
-
-function handleError(error) {
-  console.log(error);
-}
+let form = document.querySelector("#form");
+form.addEventListener("submit", handleSubmit);
 
 function currentPosition(position) {
   let lat = position.coords.latitude;
@@ -102,9 +102,16 @@ function searchPosition(event) {
   navigator.geolocation.getCurrentPosition(currentPosition);
 }
 
+// when the form is used and the city is submitted, the event listener calls the showCityName function.
+
+let searchButton = document.querySelector("#temp");
+searchButton.addEventListener("click", displayTemp);
+
 //when the current button is clicked, the event listener calls the searchPosition function
-let currentCity = document.querySelector("#current-location");
-currentCity.addEventListener("click", searchPosition);
+let currentLocationButton = document.querySelector("#current-location");
+currentLocationButton.addEventListener("click", searchPosition);
+
+search("Berlin");
 
 // let celsiusTemperature = null;
 
