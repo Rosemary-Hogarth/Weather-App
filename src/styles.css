@@ -57,7 +57,7 @@ h1 {
   font-weight: 500;
   position: relative;
   right: 40px;
-  top: 25px;
+  top: 20px;
 }
 
 .sun-icon1 {
@@ -81,13 +81,13 @@ ul {
 }
 
 .c-f {
-  font-size: 35px;
+  font-size: 20px;
   font-weight: 100px;
   list-style: none;
   text-align: right;
   padding: 0;
-  bottom: 65px;
-  right: -6px;
+  bottom: 100px;
+  right: 15px;
 }
 .sun-icon {
   color: #ec6e4c;
@@ -159,6 +159,7 @@ span {
     line-height: 50px;
     position: relative;
     right: 70px;
+    top: 10px;
   }
   .container {
     padding: 32px;
@@ -184,7 +185,7 @@ span {
     padding: 10px 20px 0 4px;
   }
 }
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 200px) {
   .form-control,
   .current,
   .button {

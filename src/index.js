@@ -94,7 +94,7 @@ function currentPosition(position) {
   axios.get(apiUrl).then(displayTemp);
 }
 
-//this function uses the geolocation navigator to find the users current lon and lat
+//this function uses the geolocation navigator to find the user's current lon and lat
 function searchPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(currentPosition);
