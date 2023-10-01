@@ -30,8 +30,7 @@ h1.innerHTML = `${day} ${time}:${minutes}`;
 //currentTemp.innerHTML = temp displays the data in the html so you can see it on the webpage
 
 function displayTemp(response) {
-  let temp = Math.round(response.data.main.temp);
-  let currentTemp = document.querySelector("#temp");
+  let temperatureElement = document.querySelector("#temperature");
 
   let description = response.data.weather[0].main;
   let currentDescription = document.querySelector("#current-description");
@@ -50,9 +49,9 @@ function displayTemp(response) {
 
   let iconElement = document.querySelector("#icon");
 
-  let celsiusTemperature = response.data.main.temp;
+  celsiusTemperature = response.data.main.temp;
 
-  currentTemp.innerHTML = Math.round(celsiusTemperature);
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
   currentDescription.innerHTML = description;
   currentHumidity.innerHTML = `Humidity: ${humidity}%`;
   currentPressure.innerHTML = `Pressure: ${pressure}%`;
@@ -112,12 +111,23 @@ currentLocationButton.addEventListener("click", searchPosition);
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
-  let fahrenheitTemperature = (14 * 9) / 5 + 32;
-  let currentTemp = document.querySelector("#temperature");
-  currentTemp.innerHTML = Math.round(fahrenheitTemperature);
-}
+  let temperatureElement = document.querySelector("#temperature");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
 
-search("Berlin");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+let celsiusTemperature = null;
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+search("Berlin");
