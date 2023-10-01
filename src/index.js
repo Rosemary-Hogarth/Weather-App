@@ -1,3 +1,5 @@
+//calling the date and time from inside js.
+
 let currentDate = new Date();
 let h1 = document.querySelector("h1");
 
@@ -18,6 +20,10 @@ if (minutes < 10) {
   minutes = `0${minutes}`;
 }
 h1.innerHTML = `${day} ${time}:${minutes}`;
+
+//let temp = Math.round(response.data.main.temp) --> data fetched from the json data sheet on openweather using apiUrl
+//.documentqueryselector links the js to the html id
+//currentTemp.innerHTML = temp displays the data in the html so you can see it on the webpage
 
 function displayTemp(response) {
   let temp = Math.round(response.data.main.temp);
@@ -44,6 +50,8 @@ function displayTemp(response) {
   let celsiusTemperature = response.data.main.temp;
 }
 
+//the event here is the form being submitted when the user searches for a city.
+
 function showCityName(event) {
   event.preventDefault();
   let citySearch = document.querySelector("#city-search");
@@ -53,8 +61,13 @@ function showCityName(event) {
   let apiKey = "3e29a63c22228ff8f4a04b82fdde6e77";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch.value}&appid=${apiKey}&units=metric`;
 
+  //axios makes HTTP requests from the browser and handles the transformation of request and response data.
+  //here it uses the url to pull all the data in the displayTemp function.
+
   axios.get(apiUrl).then(displayTemp).catch(handleError);
 }
+
+// when the form is used and the city is submitted, the event listener calls the showCityName function.
 
 let form = document.querySelector("form");
 form.addEventListener("submit", showCityName);
@@ -69,14 +82,18 @@ function currentPosition(position) {
   let apiKey = "3e29a63c22228ff8f4a04b82fdde6e77";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+
+  //axios pulls all the data from displayTemp but for the current location.
   axios.get(apiUrl).then(displayTemp);
 }
 
+//this function uses the geolocation navigator to find the users current lon and lat
 function searchPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(currentPosition);
 }
 
+//when the current button is clicked, the event listener calls the searchPosition function
 let currentCity = document.querySelector("#current-location");
 currentCity.addEventListener("click", searchPosition);
 
