@@ -1,7 +1,7 @@
 //calling the date and time from inside js.
 
-let currentDate = new Date();
-let h1 = document.querySelector("h1");
+let currentDate = document.querySelector("#current-date-data");
+let currentTime = new Date();
 
 let days = [
   "Sunday",
@@ -12,12 +12,17 @@ let days = [
   "Friday",
   "Saturday",
 ];
+let currentDay = days[currentTime.getDay()];
 let day = days[currentDate.getDay()];
 let time = currentDate.getHours();
 let minutes = currentDate.getMinutes();
 
 if (minutes < 10) {
   minutes = `0${minutes}`;
+}
+
+if (time < 10) {
+  time = `0${time}`;
 }
 h1.innerHTML = `${day} ${time}:${minutes}`;
 
@@ -37,10 +42,14 @@ function displayTemp(response) {
   currentHumidity.innerHTML = `Humidity: ${humidity}%`;
   let pressure = response.data.main.pressure;
   let currentPressure = document.querySelector("#pressure");
-  currentPressure.innerHTML = `Pressure: ${pressure}`;
+  currentPressure.innerHTML = `Pressure: ${pressure}%`;
+  let wind = Math.round(response.data.wind.speed);
+  let currentWind = document.querySelector("#wind");
+  currentWind.innerHTML = `Wind: ${wind} km/h`;
   let city = response.data.name;
   let currentCity = document.querySelector("#cityInput");
   currentCity.innerHTML = `${city}`;
+
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
@@ -97,17 +106,17 @@ function searchPosition(event) {
 let currentCity = document.querySelector("#current-location");
 currentCity.addEventListener("click", searchPosition);
 
-let celsiusTemperature = null;
+// let celsiusTemperature = null;
 
-function showCelsius(event) {
-  event.preventDefault();
-  let p = document.querySelector("#press");
+// function showCelsius(event) {
+//   event.preventDefault();
+//   let p = document.querySelector("#press");
 
-  let celsius = 30;
-  p.innerHTML = `${celsius}`;
-}
+//   let celsius = 30;
+//   p.innerHTML = `${celsius}`;
+// }
 
-let press = document.querySelector("#press");
-press.addEventListener("click", showCelsius);
+// let press = document.querySelector("#press");
+// press.addEventListener("click", showCelsius);
 
-searchPosition(Berlin);
+// searchPosition(Berlin);

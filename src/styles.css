@@ -7,12 +7,11 @@ body {
 
 .container {
   padding: 32px;
-  width: 40%;
   margin: 64px auto;
   border-radius: 10px;
   background: #ffd6e4;
   color: #5a6275;
-  max-width: fit-content;
+  max-width: 400px;
 }
 
 .form-control {
@@ -23,15 +22,13 @@ body {
   border: 1px solid #ffd5e2;
   text-align: left;
   border-radius: 3px;
-
-  padding: 2px, 2px;
 }
 
 .current {
   text-decoration: none;
   font-size: 12px;
   color: #5a6275;
-  width: 120px;
+  width: 25px;
   background-color: whitesmoke;
   border: 1px solid #ffd5e2;
   border-radius: 3px;
@@ -47,8 +44,7 @@ body {
   border: 1px solid #ffd5e2;
   border-radius: 3px;
   width: 70px;
-  margin-bottom: 0;
-  margin-top: 0;
+  padding: 0.375rem 0.75rem;
 }
 
 h1 {
@@ -58,15 +54,15 @@ h1 {
 
 .col-3 {
   font-size: 30px;
-  font-weight: 600;
+  font-weight: 500;
   position: relative;
-  right: 30px;
+  right: 40px;
   top: 25px;
 }
 
 .sun-icon1 {
   font-size: 100px;
-  color: #ffd87a;
+  color: #ec6e4c;
 }
 
 ul {
@@ -94,7 +90,7 @@ ul {
   right: -6px;
 }
 .sun-icon {
-  color: #ffd87a;
+  color: #ec6e4c;
 }
 
 .numbers {
@@ -152,16 +148,17 @@ span {
   position: relative;
   bottom: 60px;
 }
-@media screen and (max-width: 1025px) {
+@media screen and (min-width: 1000px) {
   .col-3 {
     font-size: 40px;
     line-height: 50px;
     position: relative;
-    right: 44px;
+    right: 70px;
   }
   .container {
     padding: 32px;
-    width: 100%;
+    max-width: 400px;
+
     margin: 64px auto;
     border-radius: 10px;
     background: #ffd6e4;
@@ -187,8 +184,10 @@ span {
   .current,
   .button {
     position: relative;
+    top: 15px;
     left: 150px;
     font-size: 10px;
+    width: 50px;
   }
   span {
     font-size: 10px;
