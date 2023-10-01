@@ -135,18 +135,18 @@ p {
 
 .code {
   color: #5a6275;
-  text-decoration: underline yellow;
+  text-decoration: underline #ec6e4c;
 }
 
 span {
-  max-width: 600px;
-  margin-left: 510px;
-  margin-top: 0;
+  display: block;
+  max-width: 360px;
+  margin: 0 auto;
+  position: relative;
+  bottom: 60px;
   color: #5a6275;
   font-size: 11px;
   padding: 0 auto;
-  position: relative;
-  bottom: 60px;
 }
 @media screen and (min-width: 1000px) {
   .col-3 {
