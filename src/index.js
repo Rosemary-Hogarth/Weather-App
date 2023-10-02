@@ -85,12 +85,12 @@ let form = document.querySelector("#form");
 form.addEventListener("submit", handleSubmit);
 
 function currentPosition(position) {
-  let lon = position.coords.longitude;
-  let lat = position.coords.latitude;
+  lon = position.coords.longitude;
+  lat = position.coords.latitude;
 
   let apiKey = "b75146af46et20c8d83f2ao3006e4a7d";
   let units = "metric";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=${units}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}&units=metric`;
 
   //axios pulls all the data from displayTemp but for the current location.
   https: axios.get(apiUrl).then(displayTemp);
