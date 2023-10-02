@@ -74,6 +74,10 @@ ul {
   margin: 0;
 }
 
+hr {
+  margin: 0 0 10px 0;
+}
+
 .degrees {
   display: inline-block;
   margin-right: 0;
@@ -179,7 +183,7 @@ span {
     font-size: 40px;
   }
   ul {
-    margin: 0 0 40px 0;
+    margin: 0 0 5px 0;
   }
   .search-city {
     padding: 10px 20px 0 4px;
