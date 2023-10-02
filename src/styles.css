@@ -56,7 +56,7 @@ h1 {
   font-size: 30px;
   font-weight: 500;
   position: relative;
-  right: 50px;
+  right: 45px;
   top: 20px;
 }
 
@@ -91,7 +91,7 @@ hr {
   text-align: right;
   padding: 0;
   bottom: 100px;
-  right: 15px;
+  right: 25px;
 }
 .sun-icon {
   color: #f0b91a;
@@ -159,10 +159,10 @@ span {
 }
 @media screen and (min-width: 1000px) {
   .col-3 {
-    font-size: 30px;
+    font-size: 26px;
     line-height: 50px;
     position: relative;
-    right: 50px;
+    right: 45px;
     top: 10px;
   }
   .container {
