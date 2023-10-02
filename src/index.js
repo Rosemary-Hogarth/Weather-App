@@ -32,13 +32,13 @@ h1.innerHTML = `${day} ${time}:${minutes}`;
 function displayTemp(response) {
   let temperatureElement = document.querySelector("#temperature");
 
-  let description = response.data.weather[0].main;
+  let description = response.data.condition.description;
   let currentDescription = document.querySelector("#current-description");
 
-  let humidity = response.data.main.humidity;
+  let humidity = response.data.temperature.humidity;
   let currentHumidity = document.querySelector("#humidity");
 
-  let pressure = response.data.main.pressure;
+  let pressure = response.data.temperature.pressure;
   let currentPressure = document.querySelector("#pressure");
 
   let wind = Math.round(response.data.wind.speed);
@@ -49,7 +49,7 @@ function displayTemp(response) {
 
   let iconElement = document.querySelector("#icon");
 
-  celsiusTemperature = response.data.main.temp;
+  celsiusTemperature = response.data.temperature.current;
 
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
   currentDescription.innerHTML = description;
@@ -59,17 +59,19 @@ function displayTemp(response) {
   currentCity.innerHTML = `${city}`;
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+
+    `https://api.shecodes.io/weather/v1/${response.data.condition.icon}@2x.png`
   );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
+  iconElement.setAttribute("alt", response.data.condition.description);
 }
 
 //axios makes HTTP requests from the browser and handles the transformation of request and response data.
 //here it uses the url to pull all the data in the displayTemp function.
 
 function search(city) {
-  let apiKey = "3e29a63c22228ff8f4a04b82fdde6e77";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiKey = "b75146af46et20c8d83f2ao3006e4a7d";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+
   axios.get(apiUrl).then(displayTemp);
 }
 
@@ -86,12 +88,12 @@ form.addEventListener("submit", handleSubmit);
 function currentPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let apiKey = "3e29a63c22228ff8f4a04b82fdde6e77";
+  let apiKey = "b75146af46et20c8d83f2ao3006e4a7d";
   let units = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  let apiUrl = `https://api.shecodes.io/data/v1/forecast?lat=${lat}&${lon}&key=${apiKey}&units=${units}`;
 
   //axios pulls all the data from displayTemp but for the current location.
-  axios.get(apiUrl).then(displayTemp);
+  https: axios.get(apiUrl).then(displayTemp);
 }
 
 //this function uses the geolocation navigator to find the user's current lon and lat
