@@ -44,7 +44,7 @@ function displayTemp(response) {
   let wind = Math.round(response.data.wind.speed);
   let currentWind = document.querySelector("#wind");
 
-  let city = response.data.name;
+  let city = response.data.city;
   let currentCity = document.querySelector("#cityInput");
 
   let iconElement = document.querySelector("#icon");
@@ -59,10 +59,9 @@ function displayTemp(response) {
   currentCity.innerHTML = `${city}`;
   iconElement.setAttribute(
     "src",
-
-    `https://api.shecodes.io/weather/v1/${response.data.condition.icon}@2x.png`
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
-  iconElement.setAttribute("alt", response.data.condition.description);
+  iconElement.setAttribute("alt", response.data.condition.icon);
 }
 
 //axios makes HTTP requests from the browser and handles the transformation of request and response data.
@@ -86,11 +85,12 @@ let form = document.querySelector("#form");
 form.addEventListener("submit", handleSubmit);
 
 function currentPosition(position) {
-  let lat = position.coords.latitude;
   let lon = position.coords.longitude;
+  let lat = position.coords.latitude;
+
   let apiKey = "b75146af46et20c8d83f2ao3006e4a7d";
   let units = "metric";
-  let apiUrl = `https://api.shecodes.io/data/v1/forecast?lat=${lat}&${lon}&key=${apiKey}&units=${units}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=${units}`;
 
   //axios pulls all the data from displayTemp but for the current location.
   https: axios.get(apiUrl).then(displayTemp);

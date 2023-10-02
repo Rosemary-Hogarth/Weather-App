@@ -56,13 +56,13 @@ h1 {
   font-size: 30px;
   font-weight: 500;
   position: relative;
-  right: 40px;
+  right: 50px;
   top: 20px;
 }
 
 .sun-icon1 {
   font-size: 100px;
-  color: #ec6e4c;
+  color: #f0b91a;
 }
 
 ul {
@@ -90,7 +90,7 @@ ul {
   right: 15px;
 }
 .sun-icon {
-  color: #ec6e4c;
+  color: #f0b91a;
 }
 
 .forecast {
@@ -114,7 +114,7 @@ ul {
 
 .cloud-icon,
 .cloud-rain-icon {
-  color: #414749;
+  color: #81ccf7;
 }
 
 p {
@@ -140,7 +140,7 @@ p {
 
 .code {
   color: #5a6275;
-  text-decoration: underline #ec6e4c;
+  text-decoration: underline #f0b91a;
 }
 
 span {
@@ -155,10 +155,10 @@ span {
 }
 @media screen and (min-width: 1000px) {
   .col-3 {
-    font-size: 40px;
+    font-size: 30px;
     line-height: 50px;
     position: relative;
-    right: 70px;
+    right: 50px;
     top: 10px;
   }
   .container {
