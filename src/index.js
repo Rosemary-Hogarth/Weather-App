@@ -56,6 +56,7 @@ function displayTemp(response) {
   currentHumidity.innerHTML = `Humidity: ${humidity}%`;
   currentPressure.innerHTML = `Pressure: ${pressure}%`;
   currentWind.innerHTML = `Wind: ${wind} km/h`;
+
   currentCity.innerHTML = `${city}`;
   iconElement.setAttribute(
     "src",
