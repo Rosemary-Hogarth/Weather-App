@@ -1,30 +1,29 @@
 //calling the date and time from inside js.
-function formatDate() {
-  let currentDate = new Date();
-  let h1 = document.querySelector("h1");
 
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let day = days[currentDate.getDay()];
-  let time = currentDate.getHours();
-  let minutes = currentDate.getMinutes();
+let currentDate = new Date();
+let h1 = document.querySelector("h1");
 
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+let day = days[currentDate.getDay()];
+let time = currentDate.getHours();
+let minutes = currentDate.getMinutes();
 
-  if (time < 10) {
-    time = `0${time}`;
-    h1.innerHTML = `${day} ${time}:${minutes}`;
-  }
+if (minutes < 10) {
+  minutes = `0${minutes}`;
 }
+
+if (time < 10) {
+  time = `0${time}`;
+}
+h1.innerHTML = `${day} ${time}:${minutes}`;
 
 //let temp = Math.round(response.data.main.temp) --> data fetched from the json data sheet on openweather using apiUrl
 //.documentqueryselector links the js to the html id
@@ -44,7 +43,7 @@ function displayTemp(response) {
 
   let wind = Math.round(response.data.wind.speed);
   let currentWind = document.querySelector("#wind");
-  let dateElement = document.querySelector("#date");
+
   let city = response.data.city;
   let currentCity = document.querySelector("#cityInput");
 
@@ -57,7 +56,6 @@ function displayTemp(response) {
   currentHumidity.innerHTML = `Humidity: ${humidity}%`;
   currentPressure.innerHTML = `Pressure: ${pressure}%`;
   currentWind.innerHTML = `Wind: ${wind} km/h`;
-  dateElement.innerHTML = formatDate(response.data.time * 1000);
 
   currentCity.innerHTML = `${city}`;
   iconElement.setAttribute(
