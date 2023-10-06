@@ -19,7 +19,25 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
-  return `${day} ${hours}:${minutes}`;
+
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let month = months[date.getMonth()];
+  let dateOfMonth = date.getDate();
+
+  return `${day}, ${month} ${dateOfMonth}, ${hours}:${minutes}`;
 }
 
 function formatDay(timestamp) {
@@ -42,7 +60,7 @@ function displayForecast(response) {
         forecastHTML +
         `    
       <div class="col">
-        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+        <div class="weather-forecast-date">${formatDay(forecastDay.time)}</div>
          <br/>
         <div class="weather-forecast-temperature-max">${Math.round(
           forecastDay.temperature.maximum
@@ -53,7 +71,7 @@ function displayForecast(response) {
             forecastDay.condition.icon
           }.png"
           alt=""
-          width="42"
+          width="60"
         />
         <div class="weather-forecast-temperatures">
           <div class="weather-forecast-temperature-min">${Math.round(
@@ -107,7 +125,7 @@ function displayTemp(response) {
   currentHumidity.innerHTML = `Humidity: ${humidity}%`;
   currentPressure.innerHTML = `Pressure: ${pressure}%`;
   currentWind.innerHTML = `Wind: ${wind} km/h`;
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  dateElement.innerHTML = formatDate(response.data.time * 1000);
   currentCity.innerHTML = `${city}`;
   iconElement.setAttribute(
     "src",
