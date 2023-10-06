@@ -22,8 +22,8 @@ if (minutes < 10) {
 
 if (time < 10) {
   time = `0${time}`;
+  h1.innerHTML = `${day} ${time}:${minutes}`;
 }
-h1.innerHTML = `${day} ${time}:${minutes}`;
 
 //let temp = Math.round(response.data.main.temp) --> data fetched from the json data sheet on openweather using apiUrl
 //.documentqueryselector links the js to the html id
