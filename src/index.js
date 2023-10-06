@@ -50,7 +50,7 @@ function displayTemp(response) {
 
   let wind = Math.round(response.data.wind.speed);
   let currentWind = document.querySelector("#wind");
-  let dateElement = document.querySelector("date-element");
+
   let city = response.data.city;
   let currentCity = document.querySelector("#cityInput");
 
@@ -63,7 +63,7 @@ function displayTemp(response) {
   currentHumidity.innerHTML = `Humidity: ${humidity}%`;
   currentPressure.innerHTML = `Pressure: ${pressure}%`;
   currentWind.innerHTML = `Wind: ${wind} km/h`;
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+
   currentCity.innerHTML = `${city}`;
   iconElement.setAttribute(
     "src",
