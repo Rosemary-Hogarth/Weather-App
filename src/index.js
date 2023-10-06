@@ -1,27 +1,26 @@
-let currentDate = new Date();
-let h1 = document.querySelector("h1");
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[currentDate.getDay()];
-let time = currentDate.getHours();
-let minutes = currentDate.getMinutes();
-
-if (minutes < 10) {
-  minutes = `0${minutes}`;
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
 }
-
-if (time < 10) {
-  time = `0${time}`;
-}
-h1.innerHTML = `${day} ${time}:${minutes}`;
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -29,6 +28,52 @@ function formatDay(timestamp) {
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 4) {
+      forecastHTML =
+        forecastHTML +
+        `    
+      <div class="col">
+        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+         <br/>
+        <div class="weather-forecast-temperature-max">${Math.round(
+          forecastDay.temperature.maximum
+        )}°</div>
+      
+        <img
+          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+            forecastDay.condition.icon
+          }.png"
+          alt=""
+          width="42"
+        />
+        <div class="weather-forecast-temperatures">
+          <div class="weather-forecast-temperature-min">${Math.round(
+            forecastDay.temperature.minimum
+          )}°</div>
+        </div>
+      </div>
+  `;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "b75146af46et20c8d83f2ao3006e4a7d";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 //let temp = Math.round(response.data.main.temp) --> data fetched from the json data sheet on openweather using apiUrl
@@ -49,7 +94,7 @@ function displayTemp(response) {
 
   let wind = Math.round(response.data.wind.speed);
   let currentWind = document.querySelector("#wind");
-
+  let dateElement = document.querySelector("#date");
   let city = response.data.city;
   let currentCity = document.querySelector("#cityInput");
 
@@ -62,7 +107,7 @@ function displayTemp(response) {
   currentHumidity.innerHTML = `Humidity: ${humidity}%`;
   currentPressure.innerHTML = `Pressure: ${pressure}%`;
   currentWind.innerHTML = `Wind: ${wind} km/h`;
-
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
   currentCity.innerHTML = `${city}`;
   iconElement.setAttribute(
     "src",
@@ -73,53 +118,6 @@ function displayTemp(response) {
   getForecast(response.data.coordinates);
 }
 
-function getForecast(coordinates) {
-  console.log(coordinates);
-  let apiKey = "b75146af46et20c8d83f2ao3006e4a7d";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
-  console.log(apiUrl);
-  axios.get(apiUrl).then(displayForecast);
-}
-
-function displayForecast(response) {
-  let forecast = response.data.daily;
-
-  let forecastElement = document.querySelector("#forecast");
-
-  let forecastHTML = `<div class="row">`;
-  forecast.forEach(function (forecastDay, index) {
-    if (index < 4) {
-      forecastHTML =
-        forecastHTML +
-        `
-          
-      <div class="col">
-        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
-         <br/>
-        <div class="weather-forecast-temperature-max">${Math.round(
-          forecastDay.temperature.maximum
-        )}°</div>
-      
-          
-        <img
-          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
-            forecastDay.condition.icon
-          }.png"
-          alt=""
-          width="42"
-        />
-        <div class="weather-forecast-temperatures">
-          <div class="weather-forecast-temperature-min">${Math.round(
-            forecastDay.temperature.minimum
-          )}°</div>
-        </div>
-      </div>
-  `;
-    }
-  });
-  forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forecastHTML;
-}
 //axios makes HTTP requests from the browser and handles the transformation of request and response data.
 //here it uses the url to pull all the data in the displayTemp function.
 
