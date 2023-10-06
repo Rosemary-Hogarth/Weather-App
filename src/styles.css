@@ -148,7 +148,7 @@ p {
   font-weight: 200;
 }
 
-span {
+.name {
   display: block;
   max-width: 360px;
   margin: 0 auto;
