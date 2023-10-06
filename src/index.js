@@ -1,28 +1,27 @@
-function formatDate(timestamp) {
-  let date = new Date(timestamp);
+let currentDate = new Date();
+let h1 = document.querySelector("h1");
 
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let day = days[date.getDay()];
-  let time = date.getHours();
-  let minutes = date.getMinutes();
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+let day = days[currentDate.getDay()];
+let time = currentDate.getHours();
+let minutes = currentDate.getMinutes();
 
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-
-  if (time < 10) {
-    time = `0${time}`;
-  }
-  return `${day} ${time}:${minutes}`;
+if (minutes < 10) {
+  minutes = `0${minutes}`;
 }
+
+if (time < 10) {
+  time = `0${time}`;
+}
+h1.innerHTML = `${day} ${time}:${minutes}`;
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
