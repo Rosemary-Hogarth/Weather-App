@@ -1,29 +1,36 @@
-//calling the date and time from inside js.
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
 
-let currentDate = new Date();
-let h1 = document.querySelector("h1");
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  let time = date.getHours();
+  let minutes = date.getMinutes();
 
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[currentDate.getDay()];
-let time = currentDate.getHours();
-let minutes = currentDate.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 
-if (minutes < 10) {
-  minutes = `0${minutes}`;
+  if (time < 10) {
+    time = `0${time}`;
+  }
+  return `${day} ${time}:${minutes}`;
 }
 
-if (time < 10) {
-  time = `0${time}`;
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
 }
-h1.innerHTML = `${day} ${time}:${minutes}`;
 
 //let temp = Math.round(response.data.main.temp) --> data fetched from the json data sheet on openweather using apiUrl
 //.documentqueryselector links the js to the html id
@@ -73,14 +80,6 @@ function getForecast(coordinates) {
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
   console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
-}
-
-function formatDay(timestamp) {
-  let date = new Date(timestamp * 1000);
-  let day = date.getDay();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-  return days[day];
 }
 
 function displayForecast(response) {
