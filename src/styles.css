@@ -7,7 +7,7 @@ body {
 
 .container {
   padding: 50px;
-  padding-bottom: 30px;
+  padding-bottom: 0;
   margin: 64px auto;
   border-radius: 10px;
   background: #ffd6e4;
@@ -53,12 +53,13 @@ h1 {
   font-weight: 300;
 }
 
-.col-3 {
-  font-size: 35px;
-  font-weight: 500;
+.weather-description {
+  font-size: 28px;
+  font-weight: 300;
+  padding: 0 auto;
+  margin: 0 auto;
   position: relative;
-  right: 55px;
-  top: 20px;
+  top: -10px;
 }
 
 .sun-icon1 {
@@ -70,18 +71,21 @@ ul {
   font-size: 13px;
   list-style: none;
   position: relative;
-  bottom: -30px;
+  bottom: 70px;
   padding: 0;
   margin: 0;
 }
 
 hr {
-  margin: 50px 0 0 0;
+  position: relative;
+  bottom: 50px;
 }
 
 .forecast {
   text-align: center;
-  margin-top: 20px;
+  position: relative;
+  bottom: 40px;
+  font-size: 12px;
 }
 .degrees {
   display: inline-block;
@@ -90,13 +94,14 @@ hr {
 }
 
 .degrees-celsius {
-  font-size: 20px;
-  font-weight: 100px;
+  font-size: 70px;
+  font-weight: 300px;
   list-style: none;
   text-align: right;
   padding: 0;
-  bottom: 100px;
-  right: 35px;
+  position: relative;
+  bottom: 130px;
+  right: 25px;
 }
 .sun-icon {
   color: #f0b91a;
@@ -135,10 +140,6 @@ p {
   text-decoration: none;
 }
 
-.forecast {
-  font-size: 12px;
-}
-
 .code {
   color: #5a6275;
   text-decoration: underline #f0b91a;
@@ -151,7 +152,7 @@ p {
   margin: 0 auto;
   position: relative;
   right: 50px;
-  bottom: -60px;
+  bottom: -20px;
   color: #5a6275;
   font-size: 9px;
   padding: 0 auto;
@@ -171,7 +172,7 @@ p {
   }
   .container {
     padding: 50px;
-    padding-bottom: 30px;
+    padding-bottom: 0;
     max-width: 500px;
     margin: 64px auto;
     border-radius: 10px;
@@ -201,7 +202,7 @@ p {
     top: 15px;
     left: 150px;
     font-size: 10px;
-    width: 50px;
+    width: 20px;
   }
   span {
     font-size: 10px;
