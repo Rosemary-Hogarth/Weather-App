@@ -6,12 +6,13 @@ body {
 }
 
 .container {
-  padding: 32px;
+  padding: 50px;
+  padding-bottom: 30px;
   margin: 64px auto;
   border-radius: 10px;
   background: #ffd6e4;
   color: #5a6275;
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .form-control {
@@ -53,7 +54,7 @@ h1 {
 }
 
 .col-3 {
-  font-size: 30px;
+  font-size: 35px;
   font-weight: 500;
   position: relative;
   right: 55px;
@@ -75,16 +76,20 @@ ul {
 }
 
 hr {
-  margin: 0 0 10px 0;
+  margin: 50px 0 0 0;
 }
 
+.forecast {
+  text-align: center;
+  margin-top: 20px;
+}
 .degrees {
   display: inline-block;
   margin-right: 0;
   margin-bottom: 10px;
 }
 
-.c-f {
+.degrees-celsius {
   font-size: 20px;
   font-weight: 100px;
   list-style: none;
@@ -95,10 +100,6 @@ hr {
 }
 .sun-icon {
   color: #f0b91a;
-}
-
-.forecast {
-  text-align: center;
 }
 
 .temps-max {
@@ -149,7 +150,8 @@ p {
   max-width: 360px;
   margin: 0 auto;
   position: relative;
-  bottom: -20px;
+  right: 50px;
+  bottom: -60px;
   color: #5a6275;
   font-size: 9px;
   padding: 0 auto;
@@ -161,16 +163,16 @@ p {
 }
 @media screen and (min-width: 1000px) {
   .col-3 {
-    font-size: 26px;
+    font-size: 33px;
     line-height: 50px;
     position: relative;
-    right: 45px;
+    right: 70px;
     top: 10px;
   }
   .container {
-    padding: 32px;
-    max-width: 400px;
-
+    padding: 50px;
+    padding-bottom: 30px;
+    max-width: 500px;
     margin: 64px auto;
     border-radius: 10px;
     background: #ffd6e4;
