@@ -37,7 +37,7 @@ function formatDate(timestamp) {
   let month = months[date.getMonth()];
   let dateOfMonth = date.getDate();
 
-  return `${day}, ${month} ${dateOfMonth}, ${hours}:${minutes}`;
+  return `${day} | ${month} ${dateOfMonth} | ${hours}:${minutes}`;
 }
 
 function formatDay(timestamp) {
@@ -123,8 +123,8 @@ function displayTemp(response) {
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
   currentDescription.innerHTML = description;
   currentHumidity.innerHTML = `Humidity: ${humidity}%`;
-  currentPressure.innerHTML = `Pressure: ${pressure}%`;
-  currentWind.innerHTML = `Wind: ${wind} km/h`;
+  currentPressure.innerHTML = `Pressure: ${pressure} mb`;
+  currentWind.innerHTML = `Wind: ${wind} m/s`;
   dateElement.innerHTML = formatDate(response.data.time * 1000);
   currentCity.innerHTML = `${city}`;
   iconElement.setAttribute(
@@ -183,16 +183,16 @@ searchButton.addEventListener("click", displayTemp);
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", searchPosition);
 
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+// function displayFahrenheitTemperature(event) {
+//   event.preventDefault();
+//   let temperatureElement = document.querySelector("#temperature");
+//   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
 
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
+//   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+// }
 
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+// let fahrenheitLink = document.querySelector("#fahrenheit-link");
+// fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 function displayCelsiusTemperature(event) {
   event.preventDefault();
